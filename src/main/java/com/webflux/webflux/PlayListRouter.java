@@ -6,7 +6,7 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 // @Configuration
-public class PlayListHouter {
+public class PlayListRouter {
 
   // @Bean
   public RouterFunction<ServerResponse> route(PlayListHandler handler) {
