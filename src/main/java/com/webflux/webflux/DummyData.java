@@ -1,14 +1,12 @@
 package com.webflux.webflux;
 
-import java.util.UUID;
-
 import com.webflux.webflux.document.PlayList;
 import com.webflux.webflux.repository.PlayListRespository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-
 import reactor.core.publisher.Flux;
+
+import java.util.UUID;
 
 // @Component
 public class DummyData implements CommandLineRunner {
