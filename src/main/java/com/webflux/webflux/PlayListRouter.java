@@ -12,11 +12,11 @@ public class PlayListRouter {
 
   @Bean
   public RouterFunction<ServerResponse> route(PlayListHandler handler) {
-
+    System.out.println("teste");
     return RouterFunctions.route(RequestPredicates.GET("/playlist"), handler::findAll)
         .andRoute(RequestPredicates.GET("/playlist/{id}"), handler::findById)
         .andRoute(RequestPredicates.POST("/playlist"), handler::save)
-        .andRoute(RequestPredicates.GET("/playlist/event"), handler::getPlayListByEvents);
+        .andRoute(RequestPredicates.GET("/playlist2/event"), handler::getPlayListByEvents);
   }
 
 }
