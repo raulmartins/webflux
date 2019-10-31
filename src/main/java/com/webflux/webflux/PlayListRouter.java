@@ -16,7 +16,7 @@ public class PlayListRouter {
     return RouterFunctions.route(RequestPredicates.GET("/playlist"), handler::findAll)
         .andRoute(RequestPredicates.GET("/playlist/{id}"), handler::findById)
         .andRoute(RequestPredicates.POST("/playlist"), handler::save)
-        .andRoute(RequestPredicates.GET("/playlist2/event"), handler::getPlayListByEvents);
+        .andRoute(RequestPredicates.GET("/event"), handler::getPlayListByEvents);
   }
 
 }

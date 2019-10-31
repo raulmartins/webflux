@@ -3,12 +3,15 @@ package com.webflux.webflux;
 import com.webflux.webflux.document.PlayList;
 import com.webflux.webflux.service.PlayListService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.util.function.Tuple2;
+
+import static org.springframework.http.MediaType.TEXT_EVENT_STREAM_VALUE;
 
 import java.time.Duration;
 
@@ -26,7 +29,7 @@ public class PlayListHandler {
      Flux<Long> interval = Flux.interval(Duration.ofSeconds(5));
      Flux<PlayList> events = service.findALL();
 
-     return ServerResponse.ok().body(streamPlayList(events, interval), PlayList.class);
+     return ServerResponse.ok().contentType(MediaType.TEXT_EVENT_STREAM).body(streamPlayList(events, interval), PlayList.class);
    }
 
    private Flux<PlayList> streamPlayList(Flux<PlayList> events, Flux<Long> interval) {
